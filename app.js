@@ -4,21 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var { con } = require('./server/mysql-connect');
 
-var sql = 'select * from emp';
-
-con.query(sql, (err, result) => {
-if(err){
-return console.log('query not executed :',err);
-}
-
-console.log('record found',JSON.stringify(result, undefined, 2));
-
-});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var adds = require('./routes/adds');
+var deletes = require('./routes/deletes');
+var updates = require('./routes/updates');
 
 var app = express();
 
@@ -36,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/adds',adds);
+app.use('/deletes',deletes);
+app.use('/updates',updates);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

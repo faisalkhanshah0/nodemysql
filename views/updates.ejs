@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %> Document Page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %> Page</h1>
+    <p>Welcome <%= title%> page</p>
+
+    <form method="POST" action="">
+      <label>Enter Eid on which you want to perform updation : </label><input type="text" name="eid" id="eid" />
+      <br/>
+      <h3>Or</h3>
+      <br/>
+      <label>Enter Updated Name : </label><input type="text" name="name" id="name" />
+      <br/>
+      <input type="submit" value="Update" name="update" id="update" />
+    </form>
+
+   <p>comment : <%= comment%></p>
+  </body>
+</html>
