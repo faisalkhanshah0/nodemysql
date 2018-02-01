@@ -4,6 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var { con } = require('./server/mysql-connect');
+
+var sql = 'select * from emp';
+
+con.query(sql, (err, result) => {
+if(err){
+return console.log('query not executed :',err);
+}
+
+console.log('record found',JSON.stringify(result, undefined, 2));
+
+});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
